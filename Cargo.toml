@@ -3,7 +3,8 @@ members = [
     "crates/gradi-token",
     "crates/gradi-ast",
     "crates/gradi-lexer",
-    "crates/gradi-parser"
+    "crates/gradi-parser",
+    "crates/gradi-core"
 ]
 resolver = "3"
 

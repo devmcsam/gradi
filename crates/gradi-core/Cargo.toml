@@ -1,0 +1,14 @@
+[package]
+name = "gradi-core"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+homepage.workspace = true
+readme = "README.md"
+repository = "https://github.com/devmcsam/gradi/crates/gradi-core"
+description = "The core structures for the gradi programming language"
+authors.workspace = true
+keywords = ["gradi", "language"]
+categories = ["compilers"]
+
+[dependencies]
