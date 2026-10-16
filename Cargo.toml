@@ -1,0 +1,17 @@
+[workspace]
+members = [
+    "crates/gradi-token",
+    "crates/gradi-ast",
+    "crates/gradi-lexer",
+    "crates/gradi-parser"
+]
+resolver = "3"
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+license = "MIT"
+homepage = "https://github.com/devmcsam/gradi"
+authors = ["Samuel McNally <sammcnally587@gmail.com>"]
+
+[workspace.dependencies]

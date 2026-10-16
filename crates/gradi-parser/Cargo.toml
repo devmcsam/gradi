@@ -1,0 +1,14 @@
+[package]
+name = "gradi-parser"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+homepage.workspace = true
+readme = "README.md"
+repository = "https://github.com/devmcsam/gradi/crates/gradi-parser"
+description = "The parser for the gradi programming language"
+authors.workspace = true
+keywords = ["gradi", "parser", "language"]
+categories = ["compilers", "parser-implementations"]
+
+[dependencies]

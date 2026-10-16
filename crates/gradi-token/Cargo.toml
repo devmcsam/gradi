@@ -1,0 +1,14 @@
+[package]
+name = "gradi-token"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+homepage.workspace = true
+readme = "README.md"
+repository = "https://github.com/devmcsam/gradi/crates/gradi-token"
+description = "The token type for the gradi programming language"
+authors.workspace = true
+keywords = ["gradi", "tokens", "language"]
+categories = ["compilers"]
+
+[dependencies]

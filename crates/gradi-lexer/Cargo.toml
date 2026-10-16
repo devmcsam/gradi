@@ -1,0 +1,14 @@
+[package]
+name = "gradi-lexer"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+homepage.workspace = true
+readme = "README.md"
+repository = "https://github.com/devmcsam/gradi/crates/gradi-lexer"
+description = "The lexer for the gradi programming language"
+authors.workspace = true
+keywords = ["gradi", "lexer", "language"]
+categories = ["compilers"]
+
+[dependencies]
