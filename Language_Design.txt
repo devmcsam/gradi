@@ -1,0 +1,79 @@
+This file is to define the basic language features and user interfaces. This is a rough outline and will be messy.
+
+VARIABLE DECLARATION:
+variable declarations are to be done via a "let" keyword. If a variable is to be mutable, it is declared with "let mut".
+Variable names should be in snake_case. In the early stages of the language, type annotations will be necessary but a goal
+is to implement type inference.
+
+CONSTANTS:
+Constants are declared with the "const" keyword. As with variables type annotations will be necessary. Constants should
+be in UPPER_SNAKE_CASE. Constants are obviously immutable so no "mut" keyword is necessary.
+
+FUNCTIONS:
+functions are declared with the "fn" keyword. Function names should be in snake_case. Function arguments are declared inside
+parentheses separated by commas. Function return types are declared after the parentheses (eg, fn add(a: i32, b: i32) -> i32).
+The functions body is defined as the block of code between the opening and closing curly braces of the function.
+
+TYPE DECLARATION:
+Types are declared with the "type" keyword followed by the name of the type. Then you must define the type as an alias
+to an existing type. This is similar to how rust handles this. Types both act as an alias as well as due to the type system,
+they are type safe. Types are in PascalCase.
+
+STRUCT DEFINITION:
+Structs are defined with the "struct" keyword followed by the name of the struct. Then you must define the fields that the
+struct is to contain. Fields are defined as a comma separated list that follow the variable declaration rules. Structs
+are in PascalCase.
+
+TRAIT DEFINITION:
+Traits are defined with the "trait" keyword followed by the name of the trait. Here we borrow a lot of how rust handles
+this. Traits contains functions and constants that types implementing said trait must implement. This allows for monomorphization.
+Traits are in PascalCase.
+
+LOOPS:
+There are a few kinds of loops. The most basic of these is a while loop. While loops are defined with the "while" keyword,
+then a condition. The body of a loop is defined between the opening and closing curly braces. Said body will execute as long
+as the condition is true. Next, an infinite loop is defined with the "loop" keyword. This is a loop that will execute forever
+until it is terminated by a break or return statement. Finally, a for loop is defined with the "for" keyword. Instead of using
+a basic structure like C or C++ does, we use a range that is defined by a start and end value, then an increment. For example,
+all of the following are valid for loops:
+1. for (0..10) {...} (implies that you are iterating over the range from 0 to 10, increment of +=1 is the implied default)
+2. for (i in 0..10; i += 1) {...} (note, if you want to use a custom increment you must define a variable that is iterating over the range)
+ADD MORE AS DECISIONS ARE MADE
+
+REFERENCES AND POINTERS:
+Here we copy a bit of rust and C++. References are use the "&" symbol, and pointers are defined with the "*" symbol.
+A reference is guaranteed to be a valid pointer, whereas a pointer can point to any memory address, and thus dereferencing
+is an undefined behavior. Dereferencing is done via placing the "*" operator before the variable name. This is another
+thing that can eventually be inferred, but for now it is not.
+
+METHODS ON STRUCTS:
+Methods are to be placed inside of an impl block. This is how Rust does this; however, there are a few changes. First,
+as of Rust version 1.99.1, you can not implement traits on structs inside of a unified impl block. This is useful for
+when a struct is generic and you are implementing a generic trait on it. For example in rust you can not do this:
+struct Foo<T: Bar> {...} ...
+impl<T: Bar> Foo<T> {
+// lets say addition.
+impl Add for Foo<T> {...}
+}. Currently in rust you must place the trait implementations inside there own separate impl block. Such as:
+impl<T: Bar> Add for Foo<T> {...}
+impl<T: Bar> Sub for Foo<T> {...}.
+Notice how this gets repetitive?
+Otherwise, methods on structs are handled the same.
+
+MEMORY MODEL:
+The following is a small summary of the memory model and changes/improvements to rust's memory model.
+1. The base of memory safety is a borrow checker similar to rust's.
+2. Allowance of shared access to mutable variables via an explicit marker (undecided what it will be)
+    2.a. With this, ordinary exclusive access remains zero cost and will get the same performance benifits, only the
+         shared access will be slightly slower.
+    2.b. This would allow for more efficient implementations of data structures such as graphs and other mutation heavy
+         data structures.
+3. First class regions and arenas inside the compiler.
+    3.a. TODO: Explanation
+4. Generational handles as a concept.
+5. Explicit allocation and deallocation.
+6. Ownership aware concurrency.
+7. Compiler verified operations.
+    7.a. By this I mean that the compiler can verify memory operations that maybe unsafe in a general program to the context
+         that it is being used in to determine if actually can be a safe operation. This would reduce manually audited unsafe
+         code and possibly enhance optimization.
