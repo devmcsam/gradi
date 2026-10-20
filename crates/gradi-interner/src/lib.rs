@@ -1,6 +1,8 @@
 //! The interner is a data structure that maps strings to unique identifiers.
 use lasso::{Rodeo, Spur};
 
+pub type Interner = Rodeo<Spur>;
+
 pub trait SymbolInterner {
     type Symbol: Eq + Copy + std::hash::Hash;
 
@@ -8,7 +10,7 @@ pub trait SymbolInterner {
     fn resolve(&self, symbol: Self::Symbol) -> &str;
 }
 
-impl SymbolInterner for Rodeo<Spur> {
+impl SymbolInterner for Interner {
     type Symbol = Spur;
 
     #[inline]
@@ -18,6 +20,6 @@ impl SymbolInterner for Rodeo<Spur> {
 
     #[inline]
     fn resolve(&self, symbol: Self::Symbol) -> &str {
-        Rodeo::<Spur>::resolve(self, &symbol)
+        Interner::resolve(self, &symbol)
     }
 }
