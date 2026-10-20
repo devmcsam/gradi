@@ -17,3 +17,5 @@ homepage = "https://github.com/devmcsam/gradi"
 authors = ["Samuel McNally <sammcnally587@gmail.com>"]
 
 [workspace.dependencies]
+gradi-core = { path = "crates/gradi-core" }
+gradi-interner = { path = "crates/gradi-interner" }

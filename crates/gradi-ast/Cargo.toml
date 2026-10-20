@@ -12,3 +12,5 @@ keywords = ["gradi", "AST", "language"]
 categories = ["compilers"]
 
 [dependencies]
+gradi-core.workspace = true
+gradi-interner.workspace = true
