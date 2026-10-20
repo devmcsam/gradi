@@ -13,6 +13,8 @@ pub mod pat;
 pub mod path;
 pub mod stmt;
 pub mod ty;
+pub mod visit;
 
-/// The AST or abstract syntax tree for the Gradi programming language.
-pub enum Ast {}
+pub use ast::Ast;
+pub use ident::Ident;
+pub use node_id::{NodeId, NodeIdGen};

@@ -11,7 +11,6 @@ pub mod trait_def;
 pub mod type_decl;
 pub mod use_decl;
 pub mod visibility;
-pub mod visit;
 
 pub use assoc::{AssocItem, AssocItemKind};
 pub use constant::ConstItem;
