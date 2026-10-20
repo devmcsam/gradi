@@ -1,5 +1,6 @@
 //! The AST and operations defined on said AST for the Gradi programming language.
 
+pub mod expr;
 pub mod ident;
 pub mod literal;
 pub mod mutability;
